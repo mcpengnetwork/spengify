@@ -28,7 +28,6 @@ function playSong(songName, id) {
         song.addEventListener('ended', function() {
             song.pause()
             var nextSong = library[id+1]
-            alert(nextSong)
             song = new Audio('library/' + nextSong + '.mp3')
             currentSong = songName
             song.volume = volume;
@@ -62,7 +61,6 @@ function playSong(songName, id) {
     song.addEventListener('ended', function() {
         song.pause()
         var nextSong = library[id+1]
-        alert(nextSong)
         song = new Audio('library/' + nextSong + '.mp3')
         currentSong = songName
         song.controls = true;
