@@ -20,7 +20,7 @@ for (var i=0; i < library.length; i++) {
 
 function playSong(songName) {
     if (!song) {
-        song = new Audio(songName + '.mp3')
+        song = new Audio('library/' + songName + '.mp3')
         currentSong = songName
         song.controls = true;
         song.play()
@@ -39,7 +39,7 @@ function playSong(songName) {
     }
 
     volume = song.volume
-    song = new Audio(songName + '.mp3')
+    song = new Audio('library/' + songName + '.mp3')
     currentSong = songName
     song.volume = volume;
     song.controls = true;
