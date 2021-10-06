@@ -26,10 +26,11 @@ function playSong(songName, id) {
         song.controls = true;
         song.play()
         song.addEventListener('ended', function() {
-            var nextSong = library[id+2]
+            var nextSong = library[id+1]
             alert(nextSong)
-            song = newAudio('library/' + nextSong + '.mp3')
+            song = new Audio('library/' + nextSong + '.mp3')
             currentSong = songName
+            song.volume = volume;
             song.controls = true;
             song.play()
         })
@@ -56,9 +57,9 @@ function playSong(songName, id) {
     songControls.appendChild(song)
     song.play()
     song.addEventListener('ended', function() {
-        var nextSong = library[id+2]
+        var nextSong = library[id+1]
         alert(nextSong)
-        song = newAudio('library/' + nextSong + '.mp3')
+        song = new Audio('library/' + nextSong + '.mp3')
         currentSong = songName
         song.controls = true;
         song.play()
