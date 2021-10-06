@@ -33,6 +33,8 @@ function playSong(songName, id) {
             currentSong = songName
             song.volume = volume;
             song.controls = true;
+            songControls.innerHTML = "";
+            songControls.appendChild(song)
             song.play()
         })
         songControls.innerHTML = "";
@@ -64,6 +66,9 @@ function playSong(songName, id) {
         song = new Audio('library/' + nextSong + '.mp3')
         currentSong = songName
         song.controls = true;
+        song.volume = volume;
+        songControls.innerHTML = "";
+        songControls.appendChild(song)
         song.play()
     })
     
