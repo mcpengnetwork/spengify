@@ -1,5 +1,5 @@
 var libraryEl = document.getElementById('library')
-var library = ["MONTERO (Call Me By Your Name)", "DEAD RIGHT NOW", "INDUSTRY BABY", "THATS WHAT I WANT", "SCOOP", "LOST IN THE CITADEL", "DOLLA SIGN SLIME", "TALES OF DOMINICA", "SUN GOES DOWN", "VOID"]
+var library = ["MONTERO (Call Me By Your Name)", "DEAD RIGHT NOW", "INDUSTRY BABY", "THATS WHAT I WANT", "SCOOP", "LOST IN THE CITADEL", "DOLLA SIGN SLIME", "TALES OF DOMINICA", "SUN GOES DOWN", "VOID", "DONT WANT IT", "LIFE AFTER SALEM", "AM I DREAMING"]
 var songControls = document.getElementById('songControls')
 var song;
 var currentSong = ".";
