@@ -1,6 +1,9 @@
 var libraryEl = document.getElementById('library')
 var library = ["MONTERO (Call Me By Your Name)", "DEAD RIGHT NOW", "INDUSTRY BABY"]
 var songControls = document.getElementById('songControls')
+var song;
+var currentSong = ".";
+var volume = 1;
 for (var i=0; i < library.length; i++) {
     var newSong = document.createElement("div")
     newSong.className = "library-song"
@@ -12,11 +15,36 @@ for (var i=0; i < library.length; i++) {
     }*/
     newSong.setAttribute("onclick", "playSong('" + library[i] + "');")
     var k = i
-    
     libraryEl.appendChild(newSong)
 }
 
 function playSong(songName) {
-    var song = new Audio(songName + '.mp3')
+    if (!song) {
+        song = new Audio(songName + '.mp3')
+        currentSong = songName
+        song.controls = true;
+        song.play()
+        songControls.innerHTML = "";
+        songControls.appendChild(song)
+        return;
+    }
+
+    song.pause();
+    if (currentSong == songName) {
+        song.controls = true;
+        song.play();
+        songControls.innerHTML = "";
+        songControls.appendChild(song)
+        return;
+    }
+
+    volume = song.volume
+    song = new Audio(songName + '.mp3')
+    currentSong = songName
+    song.volume = volume;
+    song.controls = true;
+    songControls.innerHTML = "";
+    songControls.appendChild(song)
     song.play()
+    
 }
