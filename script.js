@@ -27,7 +27,7 @@ function playSong(songName, id) {
         song.play()
         song.addEventListener('ended', function() {
             var nextSong = library[id+2]
-            alert(id)
+            alert(nextSong)
             song = newAudio('library/' + nextSong + '.mp3')
             currentSong = songName
             song.controls = true;
@@ -57,7 +57,7 @@ function playSong(songName, id) {
     song.play()
     song.addEventListener('ended', function() {
         var nextSong = library[id+2]
-        alert(id)
+        alert(nextSong)
         song = newAudio('library/' + nextSong + '.mp3')
         currentSong = songName
         song.controls = true;
