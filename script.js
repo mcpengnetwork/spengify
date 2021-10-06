@@ -4,6 +4,7 @@ var songControls = document.getElementById('songControls')
 var song;
 var currentSong = ".";
 var volume = 1;
+var k;
 for (var i=0; i < library.length; i++) {
     var newSong = document.createElement("div")
     newSong.className = "library-song"
@@ -13,17 +14,24 @@ for (var i=0; i < library.length; i++) {
     /*newSong.onclick = function() {
         alert('you are playing ' + library[k])
     }*/
-    newSong.setAttribute("onclick", "playSong('" + library[i] + "');")
-    var k = i
+    newSong.setAttribute("onclick", "playSong('" + library[i] + "', " + i + ");")
+    k = i
     libraryEl.appendChild(newSong)
 }
 
-function playSong(songName) {
+function playSong(songName, id) {
     if (!song) {
         song = new Audio('library/' + songName + '.mp3')
         currentSong = songName
         song.controls = true;
         song.play()
+        song.addEventListener('ended', function() {
+            var nextSong = library[i+1]
+            song = newAudio('library/' + nextSong + '.mp3')
+            currentSong = songName
+            song.controls = true;
+            song.play()
+        })
         songControls.innerHTML = "";
         songControls.appendChild(song)
         return;
@@ -46,5 +54,12 @@ function playSong(songName) {
     songControls.innerHTML = "";
     songControls.appendChild(song)
     song.play()
+    song.addEventListener('ended', function() {
+        var nextSong = library[id+1]
+        song = newAudio('library/' + nextSong + '.mp3')
+        currentSong = songName
+        song.controls = true;
+        song.play()
+    })
     
 }
